@@ -1,0 +1,73 @@
+import { NewsItem } from "@/types";
+
+export const newsData: NewsItem[] = [
+  {
+    id: "clan-leaders-dialogue-property-rights",
+    slug: "clan-leaders-dialogue-property-rights",
+    title: "Bridging Tradition and Rights: ARYA Engages Acholi Clan Leaders on Girls' Property and Inheritance Rights",
+    category: "Advocacy",
+    excerpt: "In a landmark intergenerational dialogue in Kitgum, adolescent girls and young women advocates met with traditional clan elders to deliberate on customary protections and equitable inheritance.",
+    content: [
+      "Securing property rights for young women is essential not only for economic empowerment but also for preventing vulnerabilities related to poverty and early forced marriages. In Kitgum, the Acholi Renaissance Youth Association (ARYA) recently convened a multi-stakeholder dialogue bringing together 40 traditional clan leaders (Rwodi Kweri and cultural custodians), 20 women leaders, and 30 adolescent girls and young women (AGYW) delegates.",
+      "The meeting focused on exploring how customary dispute mechanisms can be harmonised with Uganda's statutory laws to ensure girls and orphaned children are not unlawfully dispossessed of family land following the loss of parents or matrimonial separation.",
+      "Clan elders present reaffirmed the foundational Acholi cultural principle of community solidarity and pledged to support fair mediation in land disputes involving vulnerable young women.",
+      "This initiative was facilitated as part of ARYA's ongoing youth and women's rights advocacy in Northern Uganda, supported under the HER Voice Fund ecosystem.",
+    ],
+    author: {
+      name: "ARYA Secretariat Communications",
+      role: "Advocacy & Documentation Team",
+    },
+    publishedDate: "October 14, 2024",
+    readTime: "4 min read",
+    image: "/images/news/clan-dialogue.jpg",
+    tags: ["AGYW", "Inheritance Rights", "Clan Leaders", "HER Voice", "Kitgum"],
+    isFeatured: true,
+    statusNotice: "Documented programmatic milestone from ARYA's HER Voice grant portfolio.",
+  },
+  {
+    id: "civil-society-education-stakeholders-srhr",
+    slug: "civil-society-education-stakeholders-srhr",
+    title: "Strengthening School-Based SRHR: 19 Civil Society Organisations Confer in Kitgum",
+    category: "Health & SRHR",
+    excerpt: "ARYA coordinated a consultative session with 19 local CSOs, headteachers, and district education officials to evaluate adolescent-friendly health services in learning institutions.",
+    content: [
+      "Retaining adolescent girls in primary and secondary schools requires comprehensive support, including access to accurate sexual and reproductive health information, menstrual hygiene dignity facilities, and safe reporting channels for gender-based violence.",
+      "At a consultative forum in Kitgum Municipality, representatives from 19 civil society organisations gathered alongside district education officers to review existing school health guidelines and develop actionable recommendations for youth inclusion.",
+      "Eight youth delegates from ARYA's peer leadership network presented firsthand perspectives on the challenges faced by rural learners, particularly the stigma associated with adolescent pregnancies.",
+      "The forum concluded with a shared resolution to enhance coordination between schools and nearest public health centres (Health Centre IIIs) for youth-friendly mobile outreach.",
+    ],
+    author: {
+      name: "ARYA Secretariat Communications",
+      role: "Programmes Department",
+    },
+    publishedDate: "November 28, 2024",
+    readTime: "3 min read",
+    image: "/images/news/cso-education.jpg",
+    tags: ["Education", "SRHR", "Civil Society", "Health Linkages", "Youth Leadership"],
+    isFeatured: false,
+    statusNotice: "Documented programmatic milestone from public stakeholder reports.",
+  },
+  {
+    id: "community-resilience-enr-adaptation",
+    slug: "community-resilience-enr-adaptation",
+    title: "Grassroots Climate Adaptation: Integrating Tree Restoration with Youth Agriculture",
+    category: "Community",
+    excerpt: "ARYA continues its collaboration with the ENR-CSO Network to advance indigenous tree planting and climate-smart agronomy among youth farmers in rural sub-counties.",
+    content: [
+      "Changing weather patterns, erratic rains, and deforestation continue to pose major challenges to agricultural livelihoods across the Acholi sub-region.",
+      "As a member of the Environment and Natural Resources CSO (ENR-CSO) Network, ARYA is working with youth farming collectives to introduce agroforestry practices, planting indigenous shade trees alongside staple crops such as cassava, groundnuts, and millet.",
+      "By combining economic incentives with environmental stewardship, youth groups are building long-term resilience against prolonged droughts while generating sustainable household revenue.",
+      "ARYA invites local community leaders and conservation partners to collaborate on expanding seedling nurseries across vulnerable parish watersheds.",
+    ],
+    author: {
+      name: "ARYA Secretariat Communications",
+      role: "Livelihoods & Environment Desk",
+    },
+    publishedDate: "January 19, 2025",
+    readTime: "3 min read",
+    image: "/images/news/agroforestry.jpg",
+    tags: ["Environment", "ENR-CSO", "Youth Agribusiness", "Climate Resilience"],
+    isFeatured: false,
+    statusNotice: "Aligned with ARYA's ENR-CSO membership and environmental mandate.",
+  },
+];
