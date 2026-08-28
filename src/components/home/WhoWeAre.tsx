@@ -7,17 +7,16 @@ import SectionHeading from "@/components/ui/SectionHeading";
 export default function WhoWeAre() {
   return (
     <section className="py-20 md:py-28 bg-arya-ivory border-b border-arya-charcoal-100 relative overflow-hidden">
-      {/* Subtle Faded ARYA Crest Watermark (Client Request: 25-35% width, low opacity, non-interfering) */}
+      {/* Official ARYA Crest Watermark Background for the section */}
       <div
-        className="absolute top-1/2 -translate-y-1/2 -right-12 md:right-6 lg:right-12 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 opacity-[0.045] pointer-events-none select-none hidden sm:block -z-0"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] sm:w-[500px] sm:h-[500px] md:w-[650px] md:h-[650px] lg:w-[780px] lg:h-[780px] opacity-[0.065] pointer-events-none select-none z-0"
         aria-hidden="true"
       >
         <Image
           src="/images/arya-logo-transparent.png"
           alt=""
-          width={400}
-          height={450}
-          className="w-full h-full object-contain"
+          fill
+          className="object-contain"
         />
       </div>
 
