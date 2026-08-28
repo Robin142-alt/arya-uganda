@@ -7,21 +7,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 export default function WhoWeAre() {
   return (
     <section className="py-20 md:py-28 bg-arya-ivory border-b border-arya-charcoal-100 relative overflow-hidden">
-      {/* Official ARYA Crest Watermark Background (High-visibility background watermark) */}
-      <div
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] sm:w-[560px] sm:h-[560px] md:w-[750px] md:h-[750px] lg:w-[920px] lg:h-[920px] opacity-[0.45] md:opacity-[0.50] mix-blend-multiply pointer-events-none select-none z-0"
-        aria-hidden="true"
-      >
-        <Image
-          src="/images/arya-logo-transparent.png"
-          alt=""
-          fill
-          className="object-contain"
-          priority
-        />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Editorial Photo & Commitment Card */}
           <div className="lg:col-span-5 order-2 lg:order-1 space-y-6">
@@ -84,56 +70,75 @@ export default function WhoWeAre() {
             </div>
           </div>
 
-          {/* Right Column: Narrative */}
-          <div className="lg:col-span-7 order-1 lg:order-2 space-y-6">
-            <SectionHeading
-              badge="About Our Organisation"
-              badgeVariant="forest"
-              title="Who is Acholi Renaissance Youth Association?"
-              subtitle="We are a grassroots community organisation based in Kitgum, Northern Uganda, dedicated to fostering resilient, healthy, and self-sufficient communities."
-              className="mb-6"
-            />
-
-            <div className="space-y-4 text-base text-arya-charcoal-700 leading-relaxed">
-              <p>
-                Acholi Renaissance Youth Association (ARYA) works across the Acholi sub-region to dismantle the structural barriers that keep children, young people, and young women vulnerable. We believe that real community transformation happens when local people have the knowledge, platforms, and resources to lead their own development.
-              </p>
-              <p>
-                From health and sexual reproductive rights education to adolescent girls&apos; leadership dialogues and climate-resilient livelihoods, our programmes are designed to strengthen community systems and build lasting self-reliance.
-              </p>
-            </div>
-
-            {/* Pillar Grid Snapshot */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div className="p-4 rounded-xl bg-white border border-arya-charcoal-100 shadow-sm">
-                <p className="font-bold text-sm text-arya-charcoal-900 font-heading flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-arya-forest"></span>
-                  Community-Led Design
-                </p>
-                <p className="text-xs text-arya-charcoal-600 mt-1.5 leading-relaxed">
-                  Programmes designed with community members rather than prescribed from afar.
-                </p>
-              </div>
-              <div className="p-4 rounded-xl bg-white border border-arya-charcoal-100 shadow-sm">
-                <p className="font-bold text-sm text-arya-charcoal-900 font-heading flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-arya-ochre"></span>
-                  Holistic Development
-                </p>
-                <p className="text-xs text-arya-charcoal-600 mt-1.5 leading-relaxed">
-                  Integrating health, learning, livelihoods, and rights for complete well-being.
-                </p>
+          {/* Right Column: Narrative Container with ARYA Logo as Background Image */}
+          <div className="lg:col-span-7 order-1 lg:order-2 relative rounded-3xl p-6 sm:p-8 lg:p-10 bg-white/75 backdrop-blur-md border border-arya-charcoal-200/70 shadow-lg overflow-hidden space-y-6">
+            {/* Dedicated ARYA Crest Background Image for this part */}
+            <div
+              className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0 p-4"
+              aria-hidden="true"
+            >
+              <div className="relative w-full h-full max-w-[480px] max-h-[480px] opacity-30 md:opacity-35">
+                <Image
+                  src="/images/arya-logo-transparent.png"
+                  alt="ARYA Logo Background"
+                  fill
+                  className="object-contain object-center"
+                  priority
+                />
               </div>
             </div>
 
-            {/* Read More Link */}
-            <div className="pt-2">
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 text-sm font-bold text-arya-forest hover:text-arya-forest-700 group"
-              >
-                <span>Read Our Full Story, Mission & Values</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Link>
+            {/* Content sitting directly on top */}
+            <div className="relative z-10 space-y-6">
+              <SectionHeading
+                badge="About Our Organisation"
+                badgeVariant="forest"
+                title="Who is Acholi Renaissance Youth Association?"
+                subtitle="We are a grassroots community organisation based in Kitgum, Northern Uganda, dedicated to fostering resilient, healthy, and self-sufficient communities."
+                className="mb-4"
+              />
+
+              <div className="space-y-4 text-base text-arya-charcoal-800 leading-relaxed font-medium">
+                <p>
+                  Acholi Renaissance Youth Association (ARYA) works across the Acholi sub-region to dismantle the structural barriers that keep children, young people, and young women vulnerable. We believe that real community transformation happens when local people have the knowledge, platforms, and resources to lead their own development.
+                </p>
+                <p>
+                  From health and sexual reproductive rights education to adolescent girls&apos; leadership dialogues and climate-resilient livelihoods, our programmes are designed to strengthen community systems and build lasting self-reliance.
+                </p>
+              </div>
+
+              {/* Pillar Grid Snapshot */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div className="p-4 rounded-xl bg-white/90 backdrop-blur-sm border border-arya-charcoal-100 shadow-sm">
+                  <p className="font-bold text-sm text-arya-charcoal-900 font-heading flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-arya-forest"></span>
+                    Community-Led Design
+                  </p>
+                  <p className="text-xs text-arya-charcoal-600 mt-1.5 leading-relaxed">
+                    Programmes designed with community members rather than prescribed from afar.
+                  </p>
+                </div>
+                <div className="p-4 rounded-xl bg-white/90 backdrop-blur-sm border border-arya-charcoal-100 shadow-sm">
+                  <p className="font-bold text-sm text-arya-charcoal-900 font-heading flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-arya-ochre"></span>
+                    Holistic Development
+                  </p>
+                  <p className="text-xs text-arya-charcoal-600 mt-1.5 leading-relaxed">
+                    Integrating health, learning, livelihoods, and rights for complete well-being.
+                  </p>
+                </div>
+              </div>
+
+              {/* Read More Link */}
+              <div className="pt-2">
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 text-sm font-bold text-arya-forest hover:text-arya-forest-700 group"
+                >
+                  <span>Read Our Full Story, Mission & Values</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
