@@ -76,7 +76,17 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm text-arya-charcoal-300">
               <li>
                 <Link href="/about" className="hover:text-white transition-colors">
-                  Our Story & Mission
+                  Our Story & Heritage
+                </Link>
+              </li>
+              <li>
+                <Link href="/about/mission-vision" className="hover:text-white transition-colors text-arya-ochre-300">
+                  Vision, Mission & Values
+                </Link>
+              </li>
+              <li>
+                <Link href="/about/strategic-plan" className="hover:text-white transition-colors text-arya-ochre-300">
+                  Strategic Plan (2023–2027)
                 </Link>
               </li>
               <li>
@@ -90,23 +100,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/programmes#health-hiv-srhr" className="hover:text-white transition-colors">
-                  Health, HIV & SRHR
-                </Link>
-              </li>
-              <li>
                 <Link href="/projects" className="hover:text-white transition-colors">
-                  Projects & Initiatives
+                  Projects & Field Actions
                 </Link>
               </li>
               <li>
                 <Link href="/impact" className="hover:text-white transition-colors">
                   Impact & Community Stories
-                </Link>
-              </li>
-              <li>
-                <Link href="/news" className="hover:text-white transition-colors">
-                  News & Field Updates
                 </Link>
               </li>
             </ul>
@@ -139,8 +139,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/about#journey" className="hover:text-white transition-colors">
-                  Our Historical Journey
+                <Link href="/news" className="hover:text-white transition-colors">
+                  News & Field Updates
                 </Link>
               </li>
               <li>
@@ -176,7 +176,7 @@ export default function Footer() {
                 <Phone className="w-4 h-4 text-arya-ochre shrink-0 mt-0.5" />
                 <div>
                   <p>{organizationData.contact.officialPhones[0]}</p>
-                  <p>{organizationData.contact.officialPhones[1]} (Secretariat)</p>
+                  <p>{organizationData.contact.officialPhones[1]} (WhatsApp)</p>
                 </div>
               </div>
               <div className="flex items-start gap-2.5">

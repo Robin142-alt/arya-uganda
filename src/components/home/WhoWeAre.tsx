@@ -6,8 +6,22 @@ import SectionHeading from "@/components/ui/SectionHeading";
 
 export default function WhoWeAre() {
   return (
-    <section className="py-20 md:py-28 bg-arya-ivory border-b border-arya-charcoal-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 md:py-28 bg-arya-ivory border-b border-arya-charcoal-100 relative overflow-hidden">
+      {/* Subtle Faded ARYA Crest Watermark (Client Request: 25-35% width, low opacity, non-interfering) */}
+      <div
+        className="absolute top-1/2 -translate-y-1/2 -right-12 md:right-6 lg:right-12 w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 opacity-[0.045] pointer-events-none select-none hidden sm:block -z-0"
+        aria-hidden="true"
+      >
+        <Image
+          src="/images/arya-logo-transparent.png"
+          alt=""
+          width={400}
+          height={450}
+          className="w-full h-full object-contain"
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Editorial Photo & Commitment Card */}
           <div className="lg:col-span-5 order-2 lg:order-1 space-y-6">

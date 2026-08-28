@@ -2,7 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import PageHero from "@/components/shared/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
-import { currentNetworksData, historicalPartnersData } from "@/data/partners";
+import { currentNetworksData, historicalPartnersData, fundingPartnersData } from "@/data/partners";
 import {
   ShieldCheck,
   Building2,
@@ -129,6 +129,44 @@ export default function PartnersPage() {
                     </a>
                   </div>
                 )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Documented Funding Partners & Grant Mandates from Official Archive */}
+      <section className="py-20 md:py-28 bg-white border-b border-arya-charcoal-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            badge="Grant Portfolios"
+            badgeVariant="ochre"
+            title="Documented Funding Partners & Grant Mandates"
+            subtitle="Specific programmatic partnerships and targeted interventions funded across the Acholi sub-region."
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {fundingPartnersData.map((fp) => (
+              <div
+                key={fp.id}
+                className="bg-arya-ivory/50 rounded-2xl p-6 sm:p-7 border border-arya-charcoal-100 shadow-sm flex flex-col justify-between hover:border-arya-forest-300 transition-all"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-arya-forest-100 text-arya-forest">
+                      {fp.category}
+                    </span>
+                    <span className="text-[11px] font-semibold text-arya-charcoal-500">
+                      {fp.activeStatus}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-bold text-arya-charcoal-900 font-heading">
+                    {fp.name}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-arya-charcoal-600 leading-relaxed">
+                    {fp.grantPurpose}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

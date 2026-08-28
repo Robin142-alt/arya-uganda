@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [programmesDropdownOpen, setProgrammesDropdownOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -30,12 +30,21 @@ export default function Header() {
   // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
-    setProgrammesDropdownOpen(false);
+    setActiveDropdown(null);
   }, [pathname]);
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
+    {
+      name: "About Us",
+      href: "/about",
+      hasDropdown: true,
+      subLinks: [
+        { name: "About ARYA", href: "/about", desc: "Our history, heritage & presence in Kitgum" },
+        { name: "Mission & Vision", href: "/about/mission-vision", desc: "Our core values, vision & philosophy" },
+        { name: "Strategic Plan (2023–2027)", href: "/about/strategic-plan", desc: "5-Year strategic directions & roadmap" },
+      ],
+    },
     {
       name: "Our Work",
       href: "/programmes",
@@ -87,18 +96,18 @@ export default function Header() {
       <header
         className={cn(
           "sticky top-0 z-40 w-full transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-arya-charcoal-100/90",
-          isScrolled ? "py-2 shadow-md" : "py-3 md:py-3.5"
+          isScrolled ? "py-1.5 shadow-md" : "py-2.5 md:py-3"
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo / Brand Wordmark with Official Crest */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-11 sm:w-11 sm:h-12 flex items-center justify-center transition-transform group-hover:scale-105">
+            <div className="relative w-11 h-13 sm:w-12 sm:h-14 md:w-13 md:h-15 flex items-center justify-center transition-transform group-hover:scale-105">
               <Image
                 src="/images/arya-logo-transparent.png"
-                alt="Acholi Renaissance Youth Association Crest Logo"
-                width={50}
-                height={55}
+                alt="Acholi Renaissance Youth Association Official Crest Emblem"
+                width={65}
+                height={72}
                 className="w-full h-full object-contain"
                 priority
               />
@@ -107,7 +116,7 @@ export default function Header() {
               <span className="font-heading font-extrabold text-lg sm:text-xl tracking-tight text-arya-charcoal-900 group-hover:text-arya-forest transition-colors leading-tight">
                 ARYA
               </span>
-              <span className="text-[10px] sm:text-[11px] font-medium text-arya-charcoal-600 uppercase tracking-wider hidden sm:block">
+              <span className="text-[10px] sm:text-[11px] font-semibold text-arya-charcoal-600 uppercase tracking-wider hidden sm:block">
                 Acholi Renaissance Youth Association
               </span>
             </div>
@@ -122,12 +131,14 @@ export default function Header() {
                   : pathname.startsWith(link.href);
 
               if (link.hasDropdown) {
+                const isOpen = activeDropdown === link.name;
+
                 return (
                   <div
                     key={link.name}
                     className="relative"
-                    onMouseEnter={() => setProgrammesDropdownOpen(true)}
-                    onMouseLeave={() => setProgrammesDropdownOpen(false)}
+                    onMouseEnter={() => setActiveDropdown(link.name)}
+                    onMouseLeave={() => setActiveDropdown(null)}
                   >
                     <Link
                       href={link.href}
@@ -142,8 +153,8 @@ export default function Header() {
                       <ChevronDown className="w-3.5 h-3.5 opacity-70" />
                     </Link>
 
-                    {/* Mega Dropdown */}
-                    {programmesDropdownOpen && (
+                    {/* Dropdown Menu */}
+                    {isOpen && (
                       <div className="absolute top-full left-0 w-80 bg-white rounded-xl shadow-xl border border-arya-charcoal-100 p-2.5 grid grid-cols-1 gap-1 z-50 animate-in fade-in-50 slide-in-from-top-2 duration-150">
                         {link.subLinks?.map((sub) => (
                           <Link

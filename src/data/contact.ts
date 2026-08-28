@@ -33,29 +33,27 @@ export interface ContactConfig {
 
 export const contactConfig: ContactConfig = {
   address: {
-    line1: "Plot 5, Awich Road / Bwona Gweno Road",
+    line1: "Bwona Gweno Road",
     line2: "Central Division, Kitgum Municipality",
-    landmark: "Opposite District Council Hall",
+    landmark: "Opposite Kitgum District Council Hall",
     box: "P.O. Box 345, Kitgum, Uganda",
     town: "Kitgum",
     region: "Acholi Sub-Region, Northern Uganda",
     country: "Uganda",
   },
   email: {
-    primary: "acoli_ren2@yahoo.com",
-    support: "acoli_ren2@yahoo.com",
+    primary: "acoli_ren@yahoo.com",
+    support: "aryakitgum2003@gmail.com",
   },
   phones: [
-    { label: "Main Office Line", number: "+256 471 439407", isPrimary: true },
-    { label: "Secretariat Mobile / WhatsApp", number: "+256 782 874812", isWhatsApp: true },
-    { label: "Programmes Desk", number: "+256 753 490718" },
-    { label: "Community Inquiries", number: "+256 714 874812" },
+    { label: "Official Telephone", number: "+256-782-874812", isPrimary: true },
+    { label: "WhatsApp / Mobile Hotline", number: "+256-753-490718", isWhatsApp: true },
   ],
   whatsApp: {
     enabled: true,
-    number: "256782874812",
-    displayNumber: "+256 782 874812",
-    message: "Hello ARYA Secretariat, I visited your website and would like to make an inquiry regarding your programmes in Kitgum.",
+    number: "256753490718",
+    displayNumber: "+256-753-490718",
+    message: "Hello ARYA Secretariat, I visited your website and would like to make an inquiry regarding your programmes in Kitgum and Lamwo.",
   },
   officeHours: {
     weekdays: "Monday – Friday: 8:30 AM – 5:00 PM (EAT)",

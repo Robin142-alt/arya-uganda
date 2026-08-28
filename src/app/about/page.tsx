@@ -204,35 +204,57 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {/* Vision */}
-            <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 sm:p-10 border border-white/10 space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-arya-ochre text-arya-charcoal-950 flex items-center justify-center">
-                <Eye className="w-6 h-6" />
+            <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 sm:p-10 border border-white/10 space-y-4 flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-xl bg-arya-ochre text-arya-charcoal-950 flex items-center justify-center">
+                  <Eye className="w-6 h-6" />
+                </div>
+                <span className="text-xs font-bold uppercase tracking-wider text-arya-ochre-300">
+                  Our Vision
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-bold font-heading text-white">
+                  Socioeconomic Transformation
+                </h3>
+                <p className="text-base text-arya-charcoal-200 leading-relaxed">
+                  &ldquo;{organizationData.vision}&rdquo;
+                </p>
               </div>
-              <span className="text-xs font-bold uppercase tracking-wider text-arya-ochre-300">
-                Our Vision
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-bold font-heading text-white">
-                Healthy. Educated. Self-Reliant.
-              </h3>
-              <p className="text-base text-arya-charcoal-200 leading-relaxed">
-                {organizationData.vision}
-              </p>
+              <div className="pt-4 border-t border-white/10">
+                <Link
+                  href="/about/mission-vision"
+                  className="text-xs font-bold text-arya-ochre-300 hover:text-white inline-flex items-center gap-1.5 transition-colors"
+                >
+                  <span>Explore Full Vision & Values</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
             </div>
 
             {/* Mission */}
-            <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 sm:p-10 border border-white/10 space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-arya-forest text-white flex items-center justify-center">
-                <Compass className="w-6 h-6" />
+            <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 sm:p-10 border border-white/10 space-y-4 flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-xl bg-arya-forest text-white flex items-center justify-center">
+                  <Compass className="w-6 h-6" />
+                </div>
+                <span className="text-xs font-bold uppercase tracking-wider text-arya-forest-300">
+                  Our Mission
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-bold font-heading text-white">
+                  Multi-Stakeholder Collaboration
+                </h3>
+                <p className="text-base text-arya-charcoal-200 leading-relaxed">
+                  &ldquo;{organizationData.mission}&rdquo;
+                </p>
               </div>
-              <span className="text-xs font-bold uppercase tracking-wider text-arya-forest-300">
-                Our Mission
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-bold font-heading text-white">
-                Community-Led Action
-              </h3>
-              <p className="text-base text-arya-charcoal-200 leading-relaxed">
-                {organizationData.mission}
-              </p>
+              <div className="pt-4 border-t border-white/10">
+                <Link
+                  href="/about/strategic-plan"
+                  className="text-xs font-bold text-arya-ochre-300 hover:text-white inline-flex items-center gap-1.5 transition-colors"
+                >
+                  <span>View Strategic Plan 2023–2027</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
