@@ -31,7 +31,7 @@ export const projectsData: Project[] = [
       "Strengthened voice of AGYW delegates in Kitgum District health and education planning dialogues.",
       "Established peer support networks for adolescent girls navigating health and educational barriers.",
     ],
-    image: "/images/projects/her-voice.jpg",
+    image: "/images/projects/her-voice.webp",
   },
   {
     id: "community-hiv-srhr-links",
@@ -60,7 +60,7 @@ export const projectsData: Project[] = [
       "Increased youth health-seeking behavior at partner health facility youth corners.",
       "Improved community awareness on preventative behaviors and elimination of mother-to-child transmission.",
     ],
-    image: "/images/projects/health-outreach.jpg",
+    image: "/images/projects/health-outreach.webp",
   },
   {
     id: "child-retention-education-resilience",
@@ -89,7 +89,7 @@ export const projectsData: Project[] = [
       "Demonstrated reduction in dropouts among mentored cohorts across participating primary schools.",
       "Active engagement of caregivers in supportive home learning environments.",
     ],
-    image: "/images/projects/education-youth.jpg",
+    image: "/images/projects/education-youth.webp",
   },
   {
     id: "youth-agro-enterprise",
@@ -118,7 +118,7 @@ export const projectsData: Project[] = [
       "Higher seasonal crop yields and improved household grain storage capacity.",
       "Increased access to emergency community loans for medical emergencies and school fees.",
     ],
-    image: "/images/projects/livelihoods-farm.jpg",
+    image: "/images/projects/livelihoods-farm.webp",
   },
   {
     id: "post-conflict-peace-recovery",
@@ -147,6 +147,6 @@ export const projectsData: Project[] = [
       "Laid the foundational community trust and institutional presence that underpins ARYA's work today.",
       "Successfully transitioned hundreds of youth into productive civic life and local leadership.",
     ],
-    image: "/images/projects/peacebuilding.jpg",
+    image: "/images/projects/peacebuilding.webp",
   },
 ];

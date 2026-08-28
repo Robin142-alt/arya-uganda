@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { newsData } from "@/data/news";
 import PageHero from "@/components/shared/PageHero";
@@ -74,6 +75,28 @@ export default function NewsDetailPage({ params }: Props) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             {/* Main Article Body */}
             <article className="lg:col-span-8 space-y-8">
+              {/* Authentic Article Featured Image */}
+              {article.image && (
+                <div className="relative h-64 sm:h-80 md:h-96 w-full rounded-2xl overflow-hidden shadow-lg border border-arya-charcoal-200">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 70vw"
+                    className="object-cover object-top"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-arya-charcoal-950/70 via-transparent to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-arya-forest text-white">
+                      Field Update • Kitgum
+                    </span>
+                    <p className="text-xs sm:text-sm font-semibold text-white/90 mt-1">
+                      {article.title}
+                    </p>
+                  </div>
+                </div>
+              )}
               {/* Meta Info Bar */}
               <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl bg-arya-ivory border border-arya-charcoal-100 text-xs text-arya-charcoal-600">
                 <div className="flex items-center gap-4">

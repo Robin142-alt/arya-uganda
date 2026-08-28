@@ -45,7 +45,7 @@ export const programmesData: Programme[] = [
       "Advocating for youth-friendly health corners at public health centres (HC III & HC IV).",
       "Distributing health education materials and menstrual health hygiene kits.",
     ],
-    image: "/images/programmes/health.jpg",
+    image: "/images/programmes/health.webp",
     accentColor: "forest",
   },
   {
@@ -92,7 +92,7 @@ export const programmesData: Programme[] = [
       "Facilitating peer support circles for adolescent mothers returning to education or vocational training.",
       "Documenting community policy recommendations for district youth welfare action plans.",
     ],
-    image: "/images/programmes/young-women.jpg",
+    image: "/images/programmes/young-women.webp",
     accentColor: "ochre",
   },
   {
@@ -139,7 +139,7 @@ export const programmesData: Programme[] = [
       "Training teachers and youth patrons on child safeguarding and supportive learning environments.",
       "Engaging School Management Committees (SMCs) on child-friendly infrastructure.",
     ],
-    image: "/images/programmes/education.jpg",
+    image: "/images/programmes/education.webp",
     accentColor: "forest",
   },
   {
@@ -186,7 +186,7 @@ export const programmesData: Programme[] = [
       "Providing startup toolkits and mentorship for vocational trainees (tailoring, mechanics, carpentry).",
       "Hosting community market exhibitions for youth-produced agricultural products.",
     ],
-    image: "/images/programmes/livelihoods.jpg",
+    image: "/images/programmes/livelihoods.webp",
     accentColor: "ochre",
   },
   {
@@ -233,7 +233,7 @@ export const programmesData: Programme[] = [
       "Facilitating male-engagement dialogues to promote equitable domestic decision-making.",
       "Establishing community child protection committees in pilot parishes.",
     ],
-    image: "/images/programmes/protection.jpg",
+    image: "/images/programmes/protection.webp",
     accentColor: "terracotta",
   },
   {
@@ -280,7 +280,7 @@ export const programmesData: Programme[] = [
       "Convening district CSO policy dialogues with District Executive Committees.",
       "Participating in Charter for Change reviews to promote locally-led humanitarian response.",
     ],
-    image: "/images/programmes/community.jpg",
+    image: "/images/programmes/community.webp",
     accentColor: "forest",
   },
 ];

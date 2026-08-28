@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { projectsData } from "@/data/projects";
 import PageHero from "@/components/shared/PageHero";
@@ -65,6 +66,29 @@ export default function ProjectDetailPage({ params }: Props) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             {/* Left: Main Case Study Narrative */}
             <div className="lg:col-span-8 space-y-10">
+              {/* Authentic Project Feature Image */}
+              {project.image && (
+                <div className="relative h-64 sm:h-80 md:h-96 w-full rounded-2xl overflow-hidden shadow-lg border border-arya-charcoal-200">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 70vw"
+                    className="object-cover object-top"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-arya-charcoal-950/70 via-transparent to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-arya-forest text-white">
+                      Field Documentation
+                    </span>
+                    <p className="text-xs sm:text-sm font-semibold text-white/90 mt-1">
+                      {project.title} • {project.location}
+                    </p>
+                  </div>
+                </div>
+              )}
+
               {/* Verification & Overview Notice */}
               {project.verificationNote && (
                 <div className="p-5 rounded-2xl bg-arya-forest-50 border border-arya-forest-200 flex items-start gap-3.5">

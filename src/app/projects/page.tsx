@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import PageHero from "@/components/shared/PageHero";
 import { projectsData } from "@/data/projects";
 import {
@@ -72,66 +73,84 @@ export default function ProjectsPage() {
               return (
                 <div
                   key={project.id}
-                  className="bg-white rounded-2xl overflow-hidden border border-arya-charcoal-100 shadow-sm hover:shadow-md transition-all flex flex-col justify-between p-7 sm:p-8"
+                  className="bg-white rounded-2xl overflow-hidden border border-arya-charcoal-100/90 shadow-sm hover:shadow-xl hover:border-arya-forest-300 transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div>
-                    {/* Header Badges */}
-                    <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-                      <span
-                        className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
-                          isActive
-                            ? "bg-green-100 text-green-800 border border-green-200"
-                            : "bg-amber-100 text-amber-800 border border-amber-200"
-                        }`}
-                      >
-                        {project.status}
-                      </span>
-                      <span className="text-[10px] text-arya-charcoal-400 font-semibold">
-                        {project.verificationStatus}
-                      </span>
+                    {/* Project Photo Banner */}
+                    <div className="relative h-52 sm:h-60 w-full overflow-hidden bg-arya-charcoal-900">
+                      <Image
+                        src={project.image || "/images/hero/hero-community.webp"}
+                        alt={project.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-arya-charcoal-950/80 via-transparent to-transparent"></div>
+
+                      <div className="absolute top-3.5 left-3.5 flex items-center gap-2">
+                        <span
+                          className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-md shadow-sm ${
+                            isActive
+                              ? "bg-arya-forest text-white"
+                              : "bg-arya-ochre text-arya-charcoal-950"
+                          }`}
+                        >
+                          {project.status}
+                        </span>
+                      </div>
+
+                      <div className="absolute bottom-3 right-3.5">
+                        <span className="text-[11px] text-white/90 font-semibold bg-black/40 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/20">
+                          {project.programmeName}
+                        </span>
+                      </div>
                     </div>
 
-                    <h3 className="text-xl font-bold text-arya-charcoal-900 font-heading mb-3 hover:text-arya-forest transition-colors">
-                      <Link href={`/projects/${project.slug}`}>
-                        {project.title}
-                      </Link>
-                    </h3>
+                    <div className="p-6 sm:p-8">
+                      <h3 className="text-xl font-bold text-arya-charcoal-900 font-heading mb-2.5 group-hover:text-arya-forest transition-colors leading-snug">
+                        <Link href={`/projects/${project.slug}`}>
+                          {project.title}
+                        </Link>
+                      </h3>
 
-                    <p className="text-xs sm:text-sm text-arya-charcoal-600 leading-relaxed mb-6">
-                      {project.summary}
-                    </p>
+                      <p className="text-xs sm:text-sm text-arya-charcoal-600 leading-relaxed mb-6">
+                        {project.summary}
+                      </p>
 
-                    {/* Metadata Strip */}
-                    <div className="space-y-2 py-4 border-y border-arya-charcoal-100 text-xs text-arya-charcoal-600">
-                      <div className="flex items-center gap-2">
-                        <Calendar className="w-3.5 h-3.5 text-arya-forest shrink-0" />
-                        <span><strong>Timeframe:</strong> {project.timeframe}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-3.5 h-3.5 text-arya-forest shrink-0" />
-                        <span><strong>Location:</strong> {project.location}</span>
-                      </div>
-                      {project.leadFunderPartner && (
+                      {/* Metadata Strip */}
+                      <div className="space-y-2 py-4 border-y border-arya-charcoal-100 text-xs text-arya-charcoal-600">
                         <div className="flex items-center gap-2">
-                          <Building className="w-3.5 h-3.5 text-arya-forest shrink-0" />
-                          <span><strong>Partner Ecosystem:</strong> {project.leadFunderPartner}</span>
+                          <Calendar className="w-3.5 h-3.5 text-arya-forest shrink-0" />
+                          <span><strong>Timeframe:</strong> {project.timeframe}</span>
                         </div>
-                      )}
+                        <div className="flex items-center gap-2">
+                          <MapPin className="w-3.5 h-3.5 text-arya-forest shrink-0" />
+                          <span><strong>Location:</strong> {project.location}</span>
+                        </div>
+                        {project.leadFunderPartner && (
+                          <div className="flex items-center gap-2">
+                            <Building className="w-3.5 h-3.5 text-arya-forest shrink-0" />
+                            <span><strong>Partner Ecosystem:</strong> {project.leadFunderPartner}</span>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
 
                   {/* Card Bottom CTA */}
-                  <div className="pt-6 flex items-center justify-between">
-                    <span className="text-xs font-bold text-arya-ochre-700">
-                      {project.programmeName}
-                    </span>
-                    <Link
-                      href={`/projects/${project.slug}`}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-arya-forest hover:text-arya-forest-700 transition-colors group"
-                    >
-                      <span>Full Case Details</span>
-                      <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                    </Link>
+                  <div className="px-6 sm:px-8 pb-6 pt-0">
+                    <div className="pt-4 border-t border-arya-charcoal-100 flex items-center justify-between">
+                      <span className="text-xs font-semibold text-arya-charcoal-400">
+                        {project.verificationStatus}
+                      </span>
+                      <Link
+                        href={`/projects/${project.slug}`}
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-arya-forest hover:text-arya-forest-700 transition-colors group/link"
+                      >
+                        <span>Full Case Details</span>
+                        <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-1" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
               );

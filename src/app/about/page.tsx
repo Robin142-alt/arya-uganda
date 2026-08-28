@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHero from "@/components/shared/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { organizationData } from "@/data/organization";
@@ -66,6 +67,7 @@ export default function AboutPage() {
       title: "Origins of Acholi Renaissance Youth Association",
       desc: "Founded in Kitgum by visionary youth to address severe social disruption, health crises, and the breakdown of basic education in Internally Displaced People's (IDP) camps during the Northern Uganda conflict.",
       status: "Documented Foundation",
+      image: "/images/programmes/hiv-awareness-tree.webp",
     },
     {
       year: "2003–2004",
@@ -78,18 +80,21 @@ export default function AboutPage() {
       title: "Post-Conflict Recovery & Health Outreaches",
       desc: "Spearheaded community health outreaches, HIV/AIDS peer education, child-friendly spaces, and psycho-social peacebuilding galas across returning settlement sub-counties.",
       status: "Humanitarian Transition",
+      image: "/images/about/staff-pepfar-office.webp",
     },
     {
       year: "2015 – 2020",
       title: "Expanding Sectoral Networks & Localisation",
       desc: "Joined national coalitions including the Environment and Natural Resources CSO Network (ENR-CSO), Kitgum NGO Forum, and endorsed the Charter for Change to promote locally-led humanitarian response.",
       status: "Network Integration",
+      image: "/images/about/us-ambassador-grant-signing.webp",
     },
     {
       year: "Recent Years",
       title: "HER Voice Fund & Adolescent Leadership",
       desc: "Selected as a grantee partner under the HER Voice Fund (managed by Y+ Global), expanding direct advocacy on adolescent girls and young women's (AGYW) sexual reproductive rights and property inheritance.",
       status: "Flagship Portfolio",
+      image: "/images/projects/her-voice.webp",
     },
     {
       year: "Today & Beyond",
@@ -143,14 +148,33 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Right Column: Visual Box */}
-            <div className="lg:col-span-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="bg-arya-ivory p-6 rounded-2xl border border-arya-charcoal-100 space-y-3">
+            {/* Right Column: Visual Box with Authentic Team & Archival Photos */}
+            <div className="lg:col-span-6 space-y-5">
+              <div className="relative rounded-2xl overflow-hidden h-64 sm:h-72 border border-arya-charcoal-200/80 shadow-lg group">
+                <Image
+                  src="/images/about/about-community-dialogue.webp"
+                  alt="ARYA Community gathering in Northern Uganda"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-arya-charcoal-950/80 via-transparent to-transparent"></div>
+                <div className="absolute bottom-3 left-4 right-4 text-white">
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-arya-forest text-white">
+                    Kitgum Secretariat
+                  </span>
+                  <p className="text-xs font-semibold text-white/90 mt-1">
+                    Grassroots engagement & community-centered action
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-arya-ivory p-5 rounded-2xl border border-arya-charcoal-100 space-y-2 shadow-sm">
                   <span className="text-2xl sm:text-3xl font-extrabold text-arya-forest font-heading">
                     2002
                   </span>
-                  <h4 className="text-base font-bold text-arya-charcoal-900 font-heading">
+                  <h4 className="text-sm font-bold text-arya-charcoal-900 font-heading">
                     Foundational Heritage
                   </h4>
                   <p className="text-xs text-arya-charcoal-600 leading-relaxed">
@@ -158,39 +182,15 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                <div className="bg-arya-ivory p-6 rounded-2xl border border-arya-charcoal-100 space-y-3">
+                <div className="bg-arya-ivory p-5 rounded-2xl border border-arya-charcoal-100 space-y-2 shadow-sm">
                   <span className="text-2xl sm:text-3xl font-extrabold text-arya-ochre font-heading">
                     Kitgum & Lamwo
                   </span>
-                  <h4 className="text-base font-bold text-arya-charcoal-900 font-heading">
+                  <h4 className="text-sm font-bold text-arya-charcoal-900 font-heading">
                     Geographic Reach
                   </h4>
                   <p className="text-xs text-arya-charcoal-600 leading-relaxed">
-                    Centrally based on Awich / Bwona Gweno Road opposite District Council Hall.
-                  </p>
-                </div>
-
-                <div className="bg-arya-ivory p-6 rounded-2xl border border-arya-charcoal-100 space-y-3">
-                  <span className="text-2xl sm:text-3xl font-extrabold text-arya-forest font-heading">
-                    HER Voice
-                  </span>
-                  <h4 className="text-base font-bold text-arya-charcoal-900 font-heading">
-                    Grantee Portfolio
-                  </h4>
-                  <p className="text-xs text-arya-charcoal-600 leading-relaxed">
-                    Partnering under the Y+ Global initiative to empower adolescent girls & young women.
-                  </p>
-                </div>
-
-                <div className="bg-arya-ivory p-6 rounded-2xl border border-arya-charcoal-100 space-y-3">
-                  <span className="text-2xl sm:text-3xl font-extrabold text-arya-terracotta font-heading">
-                    C4C Signatory
-                  </span>
-                  <h4 className="text-base font-bold text-arya-charcoal-900 font-heading">
-                    Accountability
-                  </h4>
-                  <p className="text-xs text-arya-charcoal-600 leading-relaxed">
-                    Signatory to the Charter of Accountability promoting locally-led aid delivery.
+                    Based on Bwona Gweno Road opposite Kitgum District Council Chamber.
                   </p>
                 </div>
               </div>
@@ -334,12 +334,12 @@ export default function AboutPage() {
                 {/* Dot */}
                 <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white border-4 border-arya-forest group-hover:border-arya-ochre transition-colors"></div>
 
-                <div className="bg-white rounded-2xl p-6 sm:p-7 border border-arya-charcoal-100 shadow-sm space-y-2">
+                <div className="bg-white rounded-2xl p-6 sm:p-7 border border-arya-charcoal-100 shadow-sm space-y-4 hover:shadow-md hover:border-arya-forest-300 transition-all">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <span className="text-base sm:text-lg font-extrabold text-arya-forest font-heading">
                       {ms.year}
                     </span>
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-arya-forest-50 text-arya-forest">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-arya-forest-50 text-arya-forest border border-arya-forest-200">
                       {ms.status}
                     </span>
                   </div>
@@ -351,6 +351,18 @@ export default function AboutPage() {
                   <p className="text-xs sm:text-sm text-arya-charcoal-600 leading-relaxed">
                     {ms.desc}
                   </p>
+
+                  {ms.image && (
+                    <div className="relative h-44 sm:h-52 w-full rounded-xl overflow-hidden mt-3 border border-arya-charcoal-100">
+                      <Image
+                        src={ms.image}
+                        alt={ms.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 600px"
+                        className="object-cover object-center"
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

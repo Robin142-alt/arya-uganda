@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHero from "@/components/shared/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { programmesData } from "@/data/programmes";
@@ -78,35 +79,58 @@ export default function ProgrammesPage() {
               }`}
             >
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Header Badge & Title */}
-                <div className="max-w-3xl mb-12">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div
-                      className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                        isOchre
-                          ? "bg-arya-ochre-100 text-arya-ochre-800"
-                          : isTerracotta
-                          ? "bg-red-50 text-arya-terracotta"
-                          : "bg-arya-forest-100 text-arya-forest"
-                      }`}
-                    >
-                      {iconMap[prog.iconName] || <Sparkles className="w-6 h-6" />}
+                {/* Header Badge, Title & Authentic Photo Hero */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12">
+                  <div className="lg:col-span-7">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div
+                        className={`w-12 h-12 rounded-xl flex items-center justify-center ${
+                          isOchre
+                            ? "bg-arya-ochre-100 text-arya-ochre-800"
+                            : isTerracotta
+                            ? "bg-red-50 text-arya-terracotta"
+                            : "bg-arya-forest-100 text-arya-forest"
+                        }`}
+                      >
+                        {iconMap[prog.iconName] || <Sparkles className="w-6 h-6" />}
+                      </div>
+                      <div>
+                        <span className="text-xs font-bold uppercase tracking-wider text-arya-ochre-700">
+                          Strategic Pillar 0{idx + 1}
+                        </span>
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-arya-charcoal-900 font-heading">
+                          {prog.title}
+                        </h2>
+                      </div>
                     </div>
-                    <div>
-                      <span className="text-xs font-bold uppercase tracking-wider text-arya-ochre-700">
-                        Strategic Pillar 0{idx + 1}
-                      </span>
-                      <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-arya-charcoal-900 font-heading">
-                        {prog.title}
-                      </h2>
+                    <p className="text-base sm:text-lg text-arya-forest-700 font-semibold mb-3">
+                      {prog.heroTagline}
+                    </p>
+                    <p className="text-sm sm:text-base text-arya-charcoal-700 leading-relaxed">
+                      {prog.description}
+                    </p>
+                  </div>
+
+                  <div className="lg:col-span-5">
+                    <div className="relative h-60 sm:h-72 rounded-2xl overflow-hidden shadow-lg border border-arya-charcoal-200/80 group">
+                      <Image
+                        src={prog.image}
+                        alt={prog.title}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 40vw"
+                        className="object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-arya-charcoal-950/80 via-transparent to-transparent"></div>
+                      <div className="absolute bottom-3 left-4 right-4 text-white">
+                        <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-arya-forest text-white">
+                          Authentic Field Documentation
+                        </span>
+                        <p className="text-xs font-semibold text-white/90 mt-1">
+                          {prog.shortTitle} • Acholi Sub-Region
+                        </p>
+                      </div>
                     </div>
                   </div>
-                  <p className="text-base sm:text-lg text-arya-forest-700 font-semibold mb-3">
-                    {prog.heroTagline}
-                  </p>
-                  <p className="text-sm sm:text-base text-arya-charcoal-700 leading-relaxed">
-                    {prog.description}
-                  </p>
                 </div>
 
                 {/* Grid of Pillar Content */}

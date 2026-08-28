@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Sparkles, ArrowRight, ShieldCheck, Users, Landmark, Scale, BookOpen } from "lucide-react";
 import Button from "@/components/ui/Button";
 
@@ -35,7 +36,7 @@ export default function HerVoiceFeature() {
             </p>
 
             {/* Documented Dialogue Metrics Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
               <div className="bg-white/5 backdrop-blur-md rounded-xl p-4 border border-white/10">
                 <div className="flex items-center gap-2 text-arya-ochre mb-1">
                   <Landmark className="w-4 h-4" />
@@ -82,9 +83,28 @@ export default function HerVoiceFeature() {
             </div>
           </div>
 
-          {/* Right Column: Case Highlight Card */}
-          <div className="lg:col-span-5">
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-7 sm:p-8 border border-white/15 shadow-2xl space-y-6">
+          {/* Right Column: Case Highlight Card with Authentic Photo */}
+          <div className="lg:col-span-5 space-y-4">
+            <div className="relative rounded-2xl overflow-hidden h-52 sm:h-60 border border-white/15 shadow-xl group">
+              <Image
+                src="/images/projects/her-voice.webp"
+                alt="Adolescent Girls and Young Women advocacy delegates in Kitgum"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-arya-charcoal-950/90 via-transparent to-transparent"></div>
+              <div className="absolute bottom-3 left-4 right-4 text-white">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-arya-ochre text-arya-charcoal-950 font-heading">
+                  HER Voice Cohort
+                </span>
+                <p className="text-xs font-semibold text-white/90 mt-1">
+                  Young women peer advocates leading local dialogue in Kitgum
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 sm:p-7 border border-white/15 shadow-2xl space-y-4">
               <div className="flex items-center justify-between">
                 <span className="px-3 py-1 rounded-md bg-arya-forest text-white text-xs font-bold">
                   Documented Pillar
@@ -92,26 +112,26 @@ export default function HerVoiceFeature() {
                 <span className="text-xs text-arya-charcoal-300">Acholi Sub-Region</span>
               </div>
 
-              <h3 className="text-xl font-bold text-white font-heading">
+              <h3 className="text-lg sm:text-xl font-bold text-white font-heading leading-snug">
                 Advocating on Girls&apos; Property & Customary Inheritance
               </h3>
 
-              <p className="text-sm text-arya-charcoal-200 leading-relaxed">
+              <p className="text-xs sm:text-sm text-arya-charcoal-200 leading-relaxed">
                 When young women lose parents or marital support, customary inheritance barriers often leave them landless. ARYA brings clan elders together with young women to secure culturally grounded, protective mediation.
               </p>
 
-              <div className="space-y-3 pt-2">
-                <div className="flex items-start gap-3 text-xs sm:text-sm text-arya-charcoal-200">
+              <div className="space-y-2 pt-1">
+                <div className="flex items-start gap-2.5 text-xs text-arya-charcoal-200">
                   <Scale className="w-4 h-4 text-arya-ochre shrink-0 mt-0.5" />
                   <span>Harmonising customary mediation with statutory child and women&apos;s rights.</span>
                 </div>
-                <div className="flex items-start gap-3 text-xs sm:text-sm text-arya-charcoal-200">
+                <div className="flex items-start gap-2.5 text-xs text-arya-charcoal-200">
                   <ShieldCheck className="w-4 h-4 text-arya-ochre shrink-0 mt-0.5" />
                   <span>Preventing gender-based displacement and school dropouts.</span>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-white/15">
+              <div className="pt-3 border-t border-white/15">
                 <Link
                   href="/projects/her-voice-agyw-advocacy"
                   className="text-xs font-bold text-arya-ochre-300 hover:text-white transition-colors inline-flex items-center gap-1.5"

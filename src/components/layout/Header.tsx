@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, HeartHandshake, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, HeartHandshake, ArrowRight, ShieldCheck } from "lucide-react";
 import { organizationData } from "@/data/organization";
 import { cn } from "@/lib/utils";
 
@@ -60,23 +61,24 @@ export default function Header() {
   return (
     <>
       {/* Top micro-bar for credibility & location */}
-      <div className="bg-arya-charcoal-900 text-arya-charcoal-200 text-xs py-1.5 px-4 hidden md:block border-b border-arya-charcoal-800">
+      <div className="bg-arya-charcoal-950 text-arya-charcoal-300 text-xs py-1.5 px-4 hidden md:block border-b border-arya-charcoal-800">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5 font-medium text-arya-ivory">
               <span className="w-2 h-2 rounded-full bg-arya-ochre inline-block animate-pulse"></span>
               Kitgum • Northern Uganda
             </span>
-            <span className="text-arya-charcoal-400">|</span>
+            <span className="text-arya-charcoal-600">|</span>
             <span className="text-arya-charcoal-300">Acholi Sub-Region Community-Led Development</span>
           </div>
           <div className="flex items-center gap-5 text-arya-charcoal-300">
             <a href={`mailto:${organizationData.contact.generalEmail}`} className="hover:text-white transition-colors">
               {organizationData.contact.generalEmail}
             </a>
-            <span>•</span>
-            <Link href="/get-involved" className="text-arya-ochre-300 hover:text-arya-ochre font-medium">
-              Join Our Mission →
+            <span className="text-arya-charcoal-600">•</span>
+            <Link href="/get-involved" className="text-arya-ochre-300 hover:text-arya-ochre font-medium inline-flex items-center gap-1">
+              <span>Join Our Mission</span>
+              <span>→</span>
             </Link>
           </div>
         </div>
@@ -84,21 +86,28 @@ export default function Header() {
 
       <header
         className={cn(
-          "sticky top-0 z-40 w-full transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-arya-charcoal-100",
-          isScrolled ? "py-2.5 shadow-sm" : "py-3.5 md:py-4"
+          "sticky top-0 z-40 w-full transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-arya-charcoal-100/90",
+          isScrolled ? "py-2 shadow-md" : "py-3 md:py-3.5"
         )}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Logo / Brand Wordmark */}
+          {/* Logo / Brand Wordmark with Official Crest */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-arya-forest flex items-center justify-center text-white font-heading font-extrabold text-xl tracking-tight shadow-inner group-hover:bg-arya-forest-600 transition-colors">
-              A
+            <div className="relative w-10 h-11 sm:w-11 sm:h-12 flex items-center justify-center transition-transform group-hover:scale-105">
+              <Image
+                src="/images/arya-logo-transparent.png"
+                alt="Acholi Renaissance Youth Association Crest Logo"
+                width={50}
+                height={55}
+                className="w-full h-full object-contain"
+                priority
+              />
             </div>
             <div className="flex flex-col">
               <span className="font-heading font-extrabold text-lg sm:text-xl tracking-tight text-arya-charcoal-900 group-hover:text-arya-forest transition-colors leading-tight">
                 ARYA
               </span>
-              <span className="text-[10px] sm:text-xs font-medium text-arya-charcoal-500 uppercase tracking-wider hidden sm:block">
+              <span className="text-[10px] sm:text-[11px] font-medium text-arya-charcoal-600 uppercase tracking-wider hidden sm:block">
                 Acholi Renaissance Youth Association
               </span>
             </div>

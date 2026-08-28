@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHero from "@/components/shared/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { impactMetricsData, impactStoriesData } from "@/data/impact";
@@ -23,6 +24,12 @@ export const metadata: Metadata = {
 };
 
 export default function ImpactPage() {
+  const storyImageMap: Record<string, string> = {
+    "customary-land-rights-mediation-kitgum": "/images/community/arya-wa-11.webp",
+    "retention-pathways-rural-schools": "/images/programmes/pupils-uniforms-education.webp",
+    "agroforestry-youth-enterprise-acholi": "/images/programmes/rural-youth-peace-1.webp",
+  };
+
   return (
     <div className="flex flex-col">
       <PageHero
@@ -117,48 +124,72 @@ export default function ImpactPage() {
               <article
                 key={story.id}
                 id={story.slug}
-                className="bg-white rounded-3xl p-8 sm:p-10 md:p-12 border border-arya-charcoal-100 shadow-sm scroll-mt-24"
+                className="bg-white rounded-3xl overflow-hidden border border-arya-charcoal-100/90 shadow-sm hover:shadow-md transition-shadow scroll-mt-24"
               >
-                <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-                  <div className="flex items-center gap-3">
-                    <span className="px-3 py-1 rounded-full bg-arya-forest-100 text-arya-forest-800 text-xs font-bold uppercase tracking-wider">
-                      {story.category}
-                    </span>
-                    <span className="text-xs text-arya-charcoal-400 font-medium">
-                      {story.location} • {story.date}
+                {/* Authentic Narrative Header Image */}
+                {storyImageMap[story.slug] && (
+                  <div className="relative h-64 sm:h-80 md:h-96 w-full overflow-hidden bg-arya-charcoal-900">
+                    <Image
+                      src={storyImageMap[story.slug]}
+                      alt={story.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 80vw"
+                      className="object-cover object-top"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-arya-charcoal-950/80 via-transparent to-transparent"></div>
+                    <div className="absolute bottom-4 left-6 right-6 text-white">
+                      <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-arya-forest text-white">
+                        {story.category}
+                      </span>
+                      <p className="text-xs sm:text-sm font-semibold text-white/90 mt-1">
+                        {story.location} • Verified Field Narrative
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                <div className="p-8 sm:p-10 md:p-12">
+                  <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+                    <div className="flex items-center gap-3">
+                      <span className="px-3 py-1 rounded-full bg-arya-forest-100 text-arya-forest-800 text-xs font-bold uppercase tracking-wider">
+                        {story.category}
+                      </span>
+                      <span className="text-xs text-arya-charcoal-400 font-medium">
+                        {story.location} • {story.date}
+                      </span>
+                    </div>
+                    <span className="text-xs font-bold text-arya-ochre-700">
+                      Theme: {story.theme}
                     </span>
                   </div>
-                  <span className="text-xs font-bold text-arya-ochre-700">
-                    Theme: {story.theme}
-                  </span>
-                </div>
 
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-arya-charcoal-900 font-heading mb-4">
-                  {story.title}
-                </h3>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-arya-charcoal-900 font-heading mb-4">
+                    {story.title}
+                  </h3>
 
-                <div className="p-4 rounded-xl bg-arya-forest-50/60 border border-arya-forest-100 mb-8">
-                  <p className="text-sm font-semibold text-arya-forest-900 italic leading-relaxed">
-                    &ldquo;{story.excerpt}&rdquo;
-                  </p>
-                </div>
+                  <div className="p-4 rounded-xl bg-arya-forest-50/60 border border-arya-forest-100 mb-8">
+                    <p className="text-sm font-semibold text-arya-forest-900 italic leading-relaxed">
+                      &ldquo;{story.excerpt}&rdquo;
+                    </p>
+                  </div>
 
-                {/* Narrative Paragraphs */}
-                <div className="space-y-4 text-sm sm:text-base text-arya-charcoal-700 leading-relaxed max-w-4xl">
-                  {story.storyNarrative.map((para, pIdx) => (
-                    <p key={pIdx}>{para}</p>
-                  ))}
-                </div>
+                  {/* Narrative Paragraphs */}
+                  <div className="space-y-4 text-sm sm:text-base text-arya-charcoal-700 leading-relaxed max-w-4xl">
+                    {story.storyNarrative.map((para, pIdx) => (
+                      <p key={pIdx}>{para}</p>
+                    ))}
+                  </div>
 
-                {/* Ethical Note at story footer */}
-                <div className="mt-8 pt-6 border-t border-arya-charcoal-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-arya-charcoal-500">
-                  <p className="italic">{story.ethicalNote}</p>
-                  <Link
-                    href="/get-involved"
-                    className="font-bold text-arya-forest hover:text-arya-forest-700 shrink-0"
-                  >
-                    Support Similar Actions →
-                  </Link>
+                  {/* Ethical Note at story footer */}
+                  <div className="mt-8 pt-6 border-t border-arya-charcoal-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-arya-charcoal-500">
+                    <p className="italic">{story.ethicalNote}</p>
+                    <Link
+                      href="/get-involved"
+                      className="font-bold text-arya-forest hover:text-arya-forest-700 shrink-0"
+                    >
+                      Support Similar Actions →
+                    </Link>
+                  </div>
                 </div>
               </article>
             ))}
