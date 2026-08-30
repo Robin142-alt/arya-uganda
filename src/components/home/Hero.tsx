@@ -1,10 +1,69 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, HeartHandshake, Sparkles, MapPin, Users, Award, ShieldCheck, Heart } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ArrowRight,
+  HeartHandshake,
+  Sparkles,
+  MapPin,
+  ShieldCheck,
+  ChevronRight,
+  Flame,
+  Users,
+} from "lucide-react";
 import Button from "@/components/ui/Button";
 
+const heroSlides = [
+  {
+    id: "hero-1",
+    image: "/images/hero/hero-community.webp",
+    alt: "Authentic ARYA youth advocates in Kitgum in solidarity",
+    badge: "Community-Led Action",
+    icon: Sparkles,
+    quote: "Development succeeds when local youth, clan leaders, and women lead the dialogue and shape their own solutions.",
+    location: "Acholi Sub-Region • Kitgum",
+    tag: "Participatory Action",
+  },
+  {
+    id: "hero-2",
+    image: "/images/story/candlelight-wide-banner.webp",
+    alt: "Candle Light Day Solidarity Campaign in Kitgum",
+    badge: "Solidarity & Health Equity",
+    icon: Flame,
+    quote: "Over 8,000 community members standing together to conquer health stigma and foster compassion.",
+    location: "Kitgum Municipality",
+    tag: "8,000+ Mobilised",
+  },
+  {
+    id: "hero-3",
+    image: "/images/about/about-community-dialogue.webp",
+    alt: "Grassroots community dialogue and governance baraza in Northern Uganda",
+    badge: "Grassroots Governance",
+    icon: Users,
+    quote: "Decentralized community barazas ensuring rural families directly co-design health and learning priorities.",
+    location: "Kitgum & Lamwo",
+    tag: "Local Ownership",
+  },
+];
+
 export default function Hero() {
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    if (isHovered) return;
+    const interval = setInterval(() => {
+      setCurrentSlideIndex((prev) => (prev + 1) % heroSlides.length);
+    }, 5500);
+    return () => clearInterval(interval);
+  }, [isHovered]);
+
+  const activeSlide = heroSlides[currentSlideIndex];
+  const IconComponent = activeSlide.icon;
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-arya-charcoal-950 via-arya-forest-950 to-arya-charcoal-950 text-white min-h-[88vh] flex items-center justify-center py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
       {/* Background Graphic Accents */}
@@ -52,13 +111,13 @@ export default function Hero() {
               Explore Our Work
             </Button>
             <Button
-              href="/get-involved"
+              href="#intelligent-story-slideshow"
               variant="white"
               size="lg"
               className="w-full sm:w-auto"
-              icon={<HeartHandshake className="w-4 h-4 text-arya-forest" />}
+              icon={<Sparkles className="w-4 h-4 text-arya-forest" />}
             >
-              Partner With ARYA
+              View Field Stories
             </Button>
           </div>
 
@@ -79,37 +138,72 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Authentic Photography Showcase */}
+        {/* Right Column: Intelligent Mini-Slideshow Showcase */}
         <div className="lg:col-span-5">
-          <div className="relative mx-auto max-w-md lg:max-w-none">
+          <div
+            className="relative mx-auto max-w-md lg:max-w-none"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
             {/* Visual Container */}
             <div className="relative rounded-2xl overflow-hidden bg-gradient-to-tr from-arya-forest-800 to-arya-forest-600 border border-white/20 p-1.5 shadow-2xl group">
               <div className="aspect-[4/5] sm:aspect-[1/1] lg:aspect-[4/5] rounded-xl overflow-hidden relative bg-arya-charcoal-900 flex flex-col justify-end p-6 sm:p-7">
-                {/* Authentic ARYA Photograph */}
-                <Image
-                  src="/images/hero/hero-community.webp"
-                  alt="Authentic ARYA youth advocates in Kitgum in solidarity"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
-                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
-                  priority
-                />
+                {/* Crossfading Hero Photo */}
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={activeSlide.id}
+                    initial={{ opacity: 0, scale: 1.04 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.98 }}
+                    transition={{ duration: 0.7, ease: "easeOut" }}
+                    className="absolute inset-0 z-0"
+                  >
+                    <Image
+                      src={activeSlide.image}
+                      alt={activeSlide.alt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
+                      className="object-cover object-top"
+                      priority
+                    />
+                  </motion.div>
+                </AnimatePresence>
 
                 {/* Controlled Cinematic Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-arya-charcoal-950 via-arya-charcoal-950/40 to-transparent z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-arya-charcoal-950 via-arya-charcoal-950/40 to-transparent z-10 pointer-events-none"></div>
 
                 {/* Floating Highlight Information */}
                 <div className="relative z-20 space-y-3">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-arya-ochre text-arya-charcoal-950 font-bold text-xs shadow-md">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    <span>Community-Led Action</span>
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-arya-ochre text-arya-charcoal-950 font-bold text-xs shadow-md">
+                      <IconComponent className="w-3.5 h-3.5" />
+                      <span>{activeSlide.badge}</span>
+                    </div>
+
+                    {/* Mini Indicator Dots */}
+                    <div className="flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-2 py-1 rounded-full border border-white/10">
+                      {heroSlides.map((s, idx) => (
+                        <button
+                          key={s.id}
+                          onClick={() => setCurrentSlideIndex(idx)}
+                          className={`h-1.5 rounded-full transition-all duration-300 ${
+                            idx === currentSlideIndex
+                              ? "w-5 bg-arya-ochre"
+                              : "w-1.5 bg-white/40 hover:bg-white/70"
+                          }`}
+                          aria-label={`Go to slide ${idx + 1}`}
+                        />
+                      ))}
+                    </div>
                   </div>
-                  <blockquote className="text-sm sm:text-base font-medium text-white italic leading-snug drop-shadow-sm">
-                    &ldquo;Development succeeds when local youth, clan leaders, and women lead the dialogue and shape their own solutions.&rdquo;
+
+                  <blockquote className="text-sm sm:text-base font-medium text-white italic leading-snug drop-shadow-sm min-h-[48px]">
+                    &ldquo;{activeSlide.quote}&rdquo;
                   </blockquote>
+
                   <div className="pt-2 border-t border-white/20 flex items-center justify-between text-xs text-arya-charcoal-200">
-                    <span className="font-medium">Acholi Sub-Region • Kitgum</span>
-                    <span className="text-arya-ochre-300 font-semibold">Participatory Action</span>
+                    <span className="font-medium">{activeSlide.location}</span>
+                    <span className="text-arya-ochre-300 font-semibold">{activeSlide.tag}</span>
                   </div>
                 </div>
               </div>

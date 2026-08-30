@@ -2,7 +2,7 @@ import React from "react";
 import Hero from "@/components/home/Hero";
 import WhoWeAre from "@/components/home/WhoWeAre";
 import ProgrammeGrid from "@/components/home/ProgrammeGrid";
-import CandlelightStoryMoment from "@/components/home/CandlelightStoryMoment";
+import IntelligentSlideshow from "@/components/home/IntelligentSlideshow";
 import HerVoiceFeature from "@/components/home/HerVoiceFeature";
 import ImpactBanner from "@/components/home/ImpactBanner";
 import CommunityGallery from "@/components/home/CommunityGallery";
@@ -25,8 +25,8 @@ export default function HomePage() {
       {/* 6 Strategic Programme Pillars with Authentic Imagery */}
       <ProgrammeGrid />
 
-      {/* Image-Led Story Moment: Spread Love & Solidarity */}
-      <CandlelightStoryMoment />
+      {/* Intelligent Interactive Field Journey Slideshow */}
+      <IntelligentSlideshow />
 
       {/* Her Voice / AGYW Flagship Feature */}
       <HerVoiceFeature />
