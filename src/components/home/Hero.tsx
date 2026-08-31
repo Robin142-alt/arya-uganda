@@ -15,6 +15,7 @@ import {
   Users,
   Heart,
   BookOpen,
+  Music,
 } from "lucide-react";
 import Button from "@/components/ui/Button";
 
@@ -69,6 +70,26 @@ const heroSlides = [
     location: "08 Districts of Acholi",
     tag: "400+ Clan Leaders",
   },
+  {
+    id: "hero-6",
+    image: "/images/community/arya-wa-15.webp",
+    alt: "Youth advocates and civil society delegates in regional coalition",
+    badge: "Youth Solidarity",
+    icon: Users,
+    quote: "Uniting 30+ Civil Society Organisations and youth networks for regional community progress.",
+    location: "Acholi Sub-Region",
+    tag: "30+ CSOs United",
+  },
+  {
+    id: "hero-7",
+    image: "/images/community/arya-wa-07.webp",
+    alt: "Traditional Acholi cultural dance and community gathering",
+    badge: "Cultural Heritage",
+    icon: Music,
+    quote: "Harnessing traditional culture, drumming, and dance as a catalyst for trauma healing and unity.",
+    location: "Kitgum Cultural Arena",
+    tag: "08 Districts Footprint",
+  },
 ];
 
 export default function Hero() {
@@ -79,9 +100,10 @@ export default function Hero() {
     if (isHovered) return;
     const interval = setInterval(() => {
       setCurrentSlideIndex((prev) => (prev + 1) % heroSlides.length);
-    }, 3500);
+    }, 2700); // 2.7 seconds interval as requested
     return () => clearInterval(interval);
   }, [isHovered]);
+
 
 
   const activeSlide = heroSlides[currentSlideIndex];
