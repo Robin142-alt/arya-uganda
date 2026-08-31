@@ -41,8 +41,8 @@ export default function IntelligentSlideshow() {
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
   const [progress, setProgress] = useState<number>(0);
 
-  const SLIDE_DURATION = 4000; // 4 seconds per slide as requested
-  const UPDATE_INTERVAL = 40; // smooth progress step in ms
+  const SLIDE_DURATION = 3000; // 3 seconds per slide as requested
+  const UPDATE_INTERVAL = 25; // smooth progress step in ms
 
   // Filter items based on active category
   const filteredSlides =
@@ -431,8 +431,8 @@ export default function IntelligentSlideshow() {
             </span>
           </div>
 
-          {/* Horizontal Scrubber Strip */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-3.5">
+          {/* Horizontal Scrubber Strip for 9 Photos */}
+          <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-9 gap-2 sm:gap-2.5">
             {filteredSlides.map((slide, idx) => {
               const isCurrent = idx === currentIndex;
               return (
