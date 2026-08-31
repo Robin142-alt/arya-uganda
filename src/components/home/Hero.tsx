@@ -162,9 +162,9 @@ export default function Hero() {
                       src={activeSlide.image}
                       alt={activeSlide.alt}
                       fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
-                      className="object-cover object-top"
+                      unoptimized={true}
                       priority
+                      className="object-cover object-top"
                     />
                   </motion.div>
                 </AnimatePresence>

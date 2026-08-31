@@ -224,39 +224,39 @@ export default function IntelligentSlideshow() {
 
         {/* Main Interactive Slideshow Viewport */}
         <div
-          className="relative rounded-3xl overflow-hidden bg-arya-charcoal-900 border border-white/15 shadow-2xl group min-h-[460px] sm:min-h-[520px] lg:min-h-[580px] flex flex-col justify-between"
+          className="relative rounded-3xl overflow-hidden bg-arya-charcoal-950 border border-white/20 shadow-2xl group min-h-[480px] sm:min-h-[540px] md:min-h-[600px] lg:min-h-[640px] flex flex-col justify-between"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          {/* Animated Background Slide Image with Ken Burns Crossfade */}
+          {/* Animated Background Slide Image with Crystal-Clear Full-Fidelity Rendering */}
           <AnimatePresence mode="wait">
             <motion.div
               key={activeSlide.id}
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="absolute inset-0 z-0"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="absolute inset-0 z-0 overflow-hidden"
             >
               <Image
                 src={activeSlide.image}
                 alt={activeSlide.title}
                 fill
-                quality={95}
+                unoptimized={true}
                 priority
-                sizes="(max-width: 1280px) 100vw, 1920px"
-                className="object-cover object-center transform-gpu"
+                className="object-cover object-center w-full h-full select-none"
+                style={{ imageRendering: "auto" }}
               />
             </motion.div>
           </AnimatePresence>
 
+          {/* Clean, Non-Muddy Lighting: Clear Center View + Soft Localized Scrims for Readability */}
+          <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/70 via-black/30 to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-arya-charcoal-950 via-arya-charcoal-950/70 to-transparent z-10 pointer-events-none" />
 
-          {/* Cinematic Scrims (Multi-layer Gradients for Legibility) */}
-          <div className="absolute inset-0 bg-gradient-to-t from-arya-charcoal-950 via-arya-charcoal-950/60 to-black/30 z-10 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-arya-charcoal-950/80 via-transparent to-arya-charcoal-950/40 z-10 pointer-events-none" />
 
           {/* Top HUD: Status Badges, Progress & Interaction State */}
           <div className="relative z-20 p-4 sm:p-6 lg:p-8 flex items-center justify-between gap-4">
@@ -450,7 +450,7 @@ export default function IntelligentSlideshow() {
                     src={slide.image}
                     alt={slide.title}
                     fill
-                    quality={85}
+                    unoptimized={true}
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 12vw"
                     className="object-cover object-top"
                   />
