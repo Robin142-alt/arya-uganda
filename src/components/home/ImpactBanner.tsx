@@ -7,9 +7,9 @@ import { ArrowRight, ShieldCheck, Sparkles, BookOpen } from "lucide-react";
 
 export default function ImpactBanner() {
   const storyImageMap: Record<string, string> = {
-    "customary-land-rights-mediation-kitgum": "/images/community/arya-wa-11.webp",
-    "retention-pathways-rural-schools": "/images/programmes/pupils-uniforms-education.webp",
-    "agroforestry-youth-enterprise-acholi": "/images/programmes/rural-youth-peace-1.webp",
+    "dorcus-palabek-poultry-vsla": "/images/community/arya-wa-02.webp",
+    "acayo-barbra-her-voice": "/images/community/arya-wa-11.webp",
+    "clan-dialogue-inheriting-hope": "/images/community/arya-wa-08.webp",
   };
 
   return (

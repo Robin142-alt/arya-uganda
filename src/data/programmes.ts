@@ -78,12 +78,12 @@ export const programmesData: Programme[] = [
       "Safe space creation for rights literacy and mutual solidarity",
     ],
     featuredHighlight: {
-      title: "HER Voice Fund Engagement",
+      title: "HER Voice Fund & Regional Advocacy",
       badge: "Documented Grantee Initiative",
-      summary: "Convening clan leaders, women representatives, and AGYW advocates in Kitgum to address cultural barriers surrounding inheritance and school retention.",
+      summary: "Convening clan leaders, women representatives, and AGYW advocates across Northern Uganda to address cultural barriers surrounding inheritance, rights, and school retention.",
       stats: [
-        { label: "Clan Leaders Engaged", value: "40*", note: "*Documented in HER Voice dialogue baseline; pending final secretariat sign-off" },
-        { label: "AGYW Representatives", value: "30*", note: "*Documented in HER Voice dialogue cohort" }
+        { label: "Clan Leaders Engaged", value: "400+", note: "Across 8 districts of Acholi sub-region" },
+        { label: "AGYW Reached & Mentored", value: "24,000+", note: "Documented youth empowerment cohorts" }
       ]
     },
     sampleActivities: [

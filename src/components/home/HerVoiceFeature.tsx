@@ -40,34 +40,34 @@ export default function HerVoiceFeature() {
               <div className="bg-white/5 backdrop-blur-md rounded-xl p-4 border border-white/10">
                 <div className="flex items-center gap-2 text-arya-ochre mb-1">
                   <Landmark className="w-4 h-4" />
-                  <span className="text-2xl font-bold font-heading text-white">40</span>
+                  <span className="text-2xl font-bold font-heading text-white">400+</span>
                 </div>
                 <p className="text-xs font-semibold text-arya-charcoal-200">Clan Leaders Engaged</p>
-                <p className="text-[10px] text-arya-charcoal-400 mt-0.5">Ker Kwaro Acholi arbiters</p>
+                <p className="text-[10px] text-arya-charcoal-400 mt-0.5">Across 8 Acholi districts</p>
               </div>
 
               <div className="bg-white/5 backdrop-blur-md rounded-xl p-4 border border-white/10">
                 <div className="flex items-center gap-2 text-arya-ochre mb-1">
                   <Users className="w-4 h-4" />
-                  <span className="text-2xl font-bold font-heading text-white">30</span>
+                  <span className="text-2xl font-bold font-heading text-white">24,000+</span>
                 </div>
-                <p className="text-xs font-semibold text-arya-charcoal-200">AGYW Delegates</p>
-                <p className="text-[10px] text-arya-charcoal-400 mt-0.5">Peer advocacy cohort</p>
+                <p className="text-xs font-semibold text-arya-charcoal-200">AGYW Reached</p>
+                <p className="text-[10px] text-arya-charcoal-400 mt-0.5">Rights & SRHR mentoring</p>
               </div>
 
               <div className="bg-white/5 backdrop-blur-md rounded-xl p-4 border border-white/10 col-span-2 sm:col-span-1">
                 <div className="flex items-center gap-2 text-arya-ochre mb-1">
                   <BookOpen className="w-4 h-4" />
-                  <span className="text-2xl font-bold font-heading text-white">19</span>
+                  <span className="text-2xl font-bold font-heading text-white">30+</span>
                 </div>
-                <p className="text-xs font-semibold text-arya-charcoal-200">CSOs & School Leads</p>
-                <p className="text-[10px] text-arya-charcoal-400 mt-0.5">Education-SRHR forum</p>
+                <p className="text-xs font-semibold text-arya-charcoal-200">CSOs & Partners</p>
+                <p className="text-[10px] text-arya-charcoal-400 mt-0.5">Collaborative network</p>
               </div>
             </div>
 
             {/* Disclaimer on Statistics */}
             <p className="text-[11px] text-arya-charcoal-400 italic">
-              *Data represents documented dialogue participants under the HER Voice project baseline in Kitgum.
+              *Data represents documented participants and regional reach across Northern Uganda.
             </p>
 
             {/* CTA */}
@@ -87,9 +87,10 @@ export default function HerVoiceFeature() {
           <div className="lg:col-span-5 space-y-4">
             <div className="relative rounded-2xl overflow-hidden h-52 sm:h-60 border border-white/15 shadow-xl group">
               <Image
-                src="/images/projects/her-voice.webp"
+                src="/images/community/arya-wa-11.webp"
                 alt="Adolescent Girls and Young Women advocacy delegates in Kitgum"
                 fill
+                quality={95}
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
               />

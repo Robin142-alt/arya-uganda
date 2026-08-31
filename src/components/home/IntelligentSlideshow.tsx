@@ -245,12 +245,14 @@ export default function IntelligentSlideshow() {
                 src={activeSlide.image}
                 alt={activeSlide.title}
                 fill
-                sizes="(max-width: 1280px) 100vw, 1280px"
-                className="object-cover object-center"
+                quality={95}
                 priority
+                sizes="(max-width: 1280px) 100vw, 1920px"
+                className="object-cover object-center transform-gpu"
               />
             </motion.div>
           </AnimatePresence>
+
 
           {/* Cinematic Scrims (Multi-layer Gradients for Legibility) */}
           <div className="absolute inset-0 bg-gradient-to-t from-arya-charcoal-950 via-arya-charcoal-950/60 to-black/30 z-10 pointer-events-none" />
@@ -448,6 +450,7 @@ export default function IntelligentSlideshow() {
                     src={slide.image}
                     alt={slide.title}
                     fill
+                    quality={85}
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 12vw"
                     className="object-cover object-top"
                   />
