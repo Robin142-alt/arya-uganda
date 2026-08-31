@@ -41,8 +41,8 @@ export default function IntelligentSlideshow() {
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false);
   const [progress, setProgress] = useState<number>(0);
 
-  const SLIDE_DURATION = 6000; // 6 seconds per slide
-  const UPDATE_INTERVAL = 50; // progress step in ms
+  const SLIDE_DURATION = 4000; // 4 seconds per slide as requested
+  const UPDATE_INTERVAL = 40; // smooth progress step in ms
 
   // Filter items based on active category
   const filteredSlides =
