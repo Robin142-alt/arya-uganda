@@ -13,39 +13,61 @@ import {
   ChevronRight,
   Flame,
   Users,
+  Heart,
+  BookOpen,
 } from "lucide-react";
 import Button from "@/components/ui/Button";
 
 const heroSlides = [
   {
     id: "hero-1",
-    image: "/images/hero/hero-community.webp",
-    alt: "Authentic ARYA youth advocates in Kitgum in solidarity",
-    badge: "Community-Led Action",
-    icon: Sparkles,
-    quote: "Development succeeds when local youth, clan leaders, and women lead the dialogue and shape their own solutions.",
-    location: "Acholi Sub-Region • Kitgum",
-    tag: "Participatory Action",
-  },
-  {
-    id: "hero-2",
     image: "/images/story/candlelight-wide-banner.webp",
     alt: "Candle Light Day Solidarity Campaign in Kitgum",
-    badge: "Solidarity & Health Equity",
+    badge: "Solidarity & Health",
     icon: Flame,
     quote: "Over 8,000 community members standing together to conquer health stigma and foster compassion.",
     location: "Kitgum Municipality",
     tag: "8,000+ Mobilised",
   },
   {
-    id: "hero-3",
-    image: "/images/about/about-community-dialogue.webp",
-    alt: "Grassroots community dialogue and governance baraza in Northern Uganda",
-    badge: "Grassroots Governance",
-    icon: Users,
-    quote: "Decentralized community barazas ensuring rural families directly co-design health and learning priorities.",
+    id: "hero-2",
+    image: "/images/community/arya-wa-11.webp",
+    alt: "Adolescent Girls and Young Women leading peer advocacy in Kitgum",
+    badge: "AGYW Empowerment",
+    icon: Sparkles,
+    quote: "Equipping 24,000+ young women to champion bodily autonomy, health rights, and leadership.",
     location: "Kitgum & Lamwo",
-    tag: "Local Ownership",
+    tag: "HER Voice Cohort",
+  },
+  {
+    id: "hero-3",
+    image: "/images/community/arya-wa-02.webp",
+    alt: "Community Liaison Volunteers equipped with bicycles for parish health care",
+    badge: "Health Care & Mobility",
+    icon: Heart,
+    quote: "Equipping grassroots volunteers to deliver life-saving home-based care across remote parishes.",
+    location: "Rural Sub-Counties",
+    tag: "60+ CLVs Equipped",
+  },
+  {
+    id: "hero-4",
+    image: "/images/community/arya-wa-04.webp",
+    alt: "Primary school pupils supported with scholastic materials and uniforms",
+    badge: "Education Retention",
+    icon: BookOpen,
+    quote: "Keeping vulnerable children consistently enrolled and thriving through scholastic support.",
+    location: "Rural Primary Schools",
+    tag: "3,500+ Supported",
+  },
+  {
+    id: "hero-5",
+    image: "/images/community/arya-wa-08.webp",
+    alt: "Traditional clan elders and youth in customary peace dialogue",
+    badge: "Peace & Customary Rights",
+    icon: ShieldCheck,
+    quote: "400+ traditional clan leaders engaged to uphold widows' and girls' customary land rights.",
+    location: "08 Districts of Acholi",
+    tag: "400+ Clan Leaders",
   },
 ];
 
@@ -57,9 +79,10 @@ export default function Hero() {
     if (isHovered) return;
     const interval = setInterval(() => {
       setCurrentSlideIndex((prev) => (prev + 1) % heroSlides.length);
-    }, 5500);
+    }, 3500);
     return () => clearInterval(interval);
   }, [isHovered]);
+
 
   const activeSlide = heroSlides[currentSlideIndex];
   const IconComponent = activeSlide.icon;
