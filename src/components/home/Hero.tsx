@@ -100,7 +100,7 @@ export default function Hero() {
     if (isHovered) return;
     const interval = setInterval(() => {
       setCurrentSlideIndex((prev) => (prev + 1) % heroSlides.length);
-    }, 2700); // 2.7 seconds interval as requested
+    }, 7000); // 7 seconds interval
     return () => clearInterval(interval);
   }, [isHovered]);
 
